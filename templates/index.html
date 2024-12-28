@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=MonteCarlo&display=swap" rel="stylesheet">
+    <title>PLAGO.com</title>
+</head>
+<style>
+    body {
+        background-color: rgb(193, 190, 190);
+    }
+
+    #Home {
+        height: 100%;
+        max-height: 100vh;
+
+    }
+
+    #Result {
+        margin: auto;
+    }
+
+    .res {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .pd_textarea {
+        width: 100%;
+        height: 500px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+    }
+
+    .plag-btn {
+        display: block;
+        width: 200px;
+        height: 36px;
+        color: #fff;
+        background: #000000;
+        padding: auto;
+        text-align: center;
+        border-radius: 15px;
+        font-weight: bold;
+        line-height: 25px;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 100px;
+    }
+
+    .extra {
+        width: 100%;
+        height: 89vh;
+    }
+
+    .h1 {
+        font-size: 5rem;
+        text-align: center;
+        font-family: poppins;
+    }
+
+    .p {
+        text-align: justify;
+        font-family: ubuntu;
+    }
+
+    .app-button {
+        left: 50px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300;
+        color: white;
+        background-color: #2abd7d;
+        border-radius: 15px;
+        width: 160px;
+        height: 50px;
+        margin: 0 20px;
+        display: inline-block;
+        line-height: 50px;
+        cursor: pointer;
+        border: solid 1px transparent;
+        transition: all .1s ease-in-out;
+    }
+
+    .app-button:hover {
+        background-color: transparent;
+        border-color: #fff;
+        transition: all .1s ease-in-out;
+    }
+
+    .row {
+        text-align: center;
+        margin-left: 30%;
+        margin-right: 4px;
+    }
+
+    .navbar-brand {
+        font-family: poppins;
+        font-weight: bold;
+    }
+
+    #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        /* background-color: rgba(255, 255, 255, 0.5); */
+        /* Add a semi-transparent white background */
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* Add a high z-index to ensure the loader is on top of other elements */
+    }
+</style>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary ">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-family: monaco;" href="#">
+                <img src="./favicon_io/apple-touch-icon.png" alt="" width="30" height="24">
+                Plago
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#CheckPlag">Check Plagiarism</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Result">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Loader div -->
+        <div class="text-center">
+            <div id="loader" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            </div>
+        </div>
+        <section id="Home" class="home">
+            <div class="container col-xs-12 d-flex flex-column align-items-center justify-content-center extra">
+                <h1><span
+                        style="color:#03C988; font-family: 'Lobster', cursive; font-weight:bolder; text-shadow: 3px 3px 3px #666666;">PLAGIARISM
+                        DETECTOR</span></h1>
+                <h2 style="font-weight:bold; text-align:center;">"Create, don't imitate. Avoid plagiarism."</h2>
+                <p style="font-weight:bold; font-family:Sofia, sans-serif; text-align: center;">Our plagiarism detection
+                    tool is designed to
+                    help you improve
+                    the quality of your work and avoid
+                    plagiarism, ensuring that you maintain your academic and professional integrity.</p>
+                <a class="plag-btn" href="#CheckPlag">Let's Go</a>
+            </div>
+        </section>
+        <section id="CheckPlag">
+            <form action="/submit" method="post" enctype="multipart/form-data">
+                <label for="input-type">Select The input type:</label>
+                <select class="form-select" name="input_type" id="input-type" aria-label="Default select example">
+                    <option value="text" selected>Text</option>
+                    <option value="file">File</option>
+                </select>
+                <br>
+                <label for="input">Input:</label>
+                <br>
+                <textarea name="input" id="input" class="pd_textarea" rows="4" cols="50"
+                    placeholder="Paste Your Text Here"></textarea>
+                <br>
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="file" name="file" id="file" style="display:none;">
+                </div>
+                <div class="row">
+                    <button id="sub" type="submit" class="app-button"><a href="#Result"></a> Check
+                        Plagiarism</button>
+                    <a class="app-button" href="https://www.grammarly.com/">Check Grammar</a>
+                </div>
+            </form>
+        </section>
+        <section id="Result" class="col-xs-12 d-flex flex-column align-items-center justify-content-center extra">
+            <div class="res">
+                <h1>Thank You!</h1>
+                <p>Your message has been received.</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.getElementById("input-type").addEventListener("change", function () {
+            var inputType = document.getElementById("input-type").value;
+            if (inputType === "text") {
+                document.getElementById("input").style.display = "block";
+                document.getElementById("file").style.display = "none";
+            } else if (inputType === "file") {
+                document.getElementById("input").style.display = "none";
+                document.getElementById("file").style.display = "block";
+            }
+        });
+
+        document.getElementById("file-selector").addEventListener("click", function () {
+            document.getElementById("file").click();
+        });
+    </script>
+
+    <script>
+        // Get the button element by its ID
+        var scrollButton = document.getElementById("sub");
+
+        // Get the section element by its ID
+        var targetSection = document.getElementById("Result");
+
+        // Add event listener to the button and define a function to be executed when clicked
+        scrollButton.addEventListener("click", function () {
+            // Scroll to the section
+            targetSection.scrollIntoView({ duration: 5000 });
+        });
+
+        // JavaScript code to handle button click and show/hide loader
+        document.getElementById('sub').addEventListener('click', function () {
+            // Show loader
+            document.getElementById('loader').style.display = 'flex';
+
+            // Simulate some asynchronous task, such as an AJAX request
+            setTimeout(function () {
+                // Hide loader after 3 seconds (replace this with your actual asynchronous task)
+                document.getElementById('loader').style.display = 'none';
+                // window.location.href = "http://127.0.0.1:8000/submit";
+
+            }, 5000);
+        });
+
+    </script>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

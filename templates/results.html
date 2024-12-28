@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include the Bootstrap CSS file -->
+    <style>
+        a {
+            font-size: large;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1 style="text-align:center">Matching Sources</h1>
+    <div class="container">
+        <!-- Add the Bootstrap container class for responsive layout -->
+        <table class="table table-bordered">
+            <!-- Add the Bootstrap table class for table styling -->
+            <tr>
+                <th>Source</th>
+                <th>Match</th>
+                <!-- Add more table headers for each field in your JSON objects -->
+            </tr>
+            {% for item in json_data %}
+            <tr>
+                <td> <a href="{{ item[" source"] }}" target="_blank">{{ item["source"] }}</a></td>
+                <td>{{ item["match"] }}</td>
+                <!-- Add more table cells for each field in your JSON objects -->
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.15.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include the Bootstrap JavaScript files -->
+</body>
+
+</html>
